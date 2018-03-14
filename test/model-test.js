@@ -17,7 +17,10 @@ const Animal = require('../model/animal');
 const animalModelTest = require('./model/animal-model-test');
 const animalSeeds = seeds.animalSeeds;
 
-adminModelTest(assert, Admin, adminSeeds);
-shelterModelTest(assert, Shelter, shelterSeeds);
-shelterAdminModelTest(assert, ShelterAdmin, Shelter, Animal, shelterAdminSeeds);
-animalModelTest(assert, Animal, ShelterAdmin, Shelter, animalSeeds);
+describe('MODEL TESTS...', () => {
+	adminModelTest(assert, Admin, adminSeeds);
+	shelterModelTest(assert, Shelter, shelterSeeds);
+	shelterAdminModelTest(assert, ShelterAdmin, Shelter, Animal, shelterAdminSeeds);
+	animalModelTest(assert, Animal, ShelterAdmin, Shelter, animalSeeds);
+	
+})

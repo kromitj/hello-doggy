@@ -46,10 +46,6 @@ const shelterAdminModelCRUD = (assert, ShelterAdmin, Shelter, seeds) => {
 			})
 		})
 	})
-	it('is able to add an animal to its assossiated shelter with instance method #addAnimal', (done) => {
-		assert(true === true);
-		done();
-	})
 }
 
 module.exports = shelterAdminModelCRUD;

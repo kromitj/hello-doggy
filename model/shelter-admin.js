@@ -8,20 +8,28 @@ const ShelterAdminSchema = new Schema({
 	username: String,
 	passwordDigest: String,
 	shelterId: {
-        type: Schema.Types.ObjectId,
-        ref: 'shelter'
-    }
+    type: Schema.Types.ObjectId,
+    ref: 'shelter'
+  }
 });
 
-ShelterAdminSchema.methods.addAnimal = function(animal, done) {
-    const shelter = mongoose.model('shelter');
-    shelter.findById(this.shelterId)
-    .then((shelter) => {
-    	shelter.animals.push(animal)
-        console.log("shelter: ", shelter)
-        shelter.save()
-    }).then(() => done())
-  };
+// ShelterAdminSchema.methods.addAnimal = function(animal, shelterId) {
+//   console.log("shelterId: ", shelterId)
+//   console.log("-------------------------------------->>>>>>>")
+//   const shelter = mongoose.model('shelter');
+//   shelter.findById(shelterId)
+//   .then((shelter) => {
+//   	shelter.animals.push(animal)
+//       console.log("shelter: ", shelter)
+//       return shelter.save()
+//       .then((res) => {
+//         return Promise.resolve(res.toObject())
+//       })
+//       .catch(err => {
+//          return Promise.reject(err);
+//       });
+//     })
+//   };
 
 const ShelterAdmin = mongoose.model('shelterAdmin', ShelterAdminSchema);
 
