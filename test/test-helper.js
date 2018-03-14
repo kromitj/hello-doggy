@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose');
 const database = 'mongodb://localhost/hello-doggy';
 mongoose.Promise = global.Promise;
@@ -15,12 +17,15 @@ before((done) => {
 		.on('error', (error) => console.error("Eror: ", error))	
 })
 
-beforeEach((done) => {
-	const { admins, shelters } = mongoose.connection.collections
-	admins.drop(() => {
-		shelters.drop(() => {
-			done()
-			
-		})
-	})
-})
+// beforeEach((done) => {
+// 	const connections = mongoose.connection.collections
+// 	connections.admins.drop(() => {
+// 		connections.shelters.drop(() => {
+// 			connections.shelteradmins.drop(() => {
+// 				connections.shelteradmins.drop(() => {
+// 					done()					
+// 				})
+// 			})	
+// 		})
+// 	})
+// })
